@@ -122,7 +122,7 @@
             </tr>
             <tr class="input">
                 <td class="input">
-                    <p> <span class="sub"> Day of the week: </span> </p>
+                    <p> <span class="sub"> Day: </span> </p>
                 </td>
                 <td class="input">
                 <p>
