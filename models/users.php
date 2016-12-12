@@ -16,7 +16,7 @@ class UsersDB
     public function get_user($login_name)
     {
         $sql = "SELECT * FROM tbl_accounts WHERE acc_login='".$login_name."'";
-        return mysqli_fetch_assoc(mysqli_query($this->con, $sql));
+        return (mysqli_query($this->con, $sql));
     }
 }
 ?>

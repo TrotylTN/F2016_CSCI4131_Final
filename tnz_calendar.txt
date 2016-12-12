@@ -1,1 +1,2 @@
 {"eventname":"123","starttime":"10:00","endtime":"23:00","location":"Keller Hall","day":"Tue"}
+{"eventname":"4061","starttime":"09:45","endtime":"11:00","location":"Bell Museum","day":"Tue"}

@@ -4,7 +4,7 @@
     if (!isset($userdb)) {
         $userdb = new UsersDB();
     }
-    $login_error .= "hahah";
+    $login_error .= "";
     if (isset($_POST["passdata"])) {          
         $flag = true;
         if ($_POST["login"] == "") {
@@ -18,13 +18,12 @@
         if ($flag) {                      
             $loginname = $_POST["login"];
             $passwd = $_POST["password"];
-            // $result = $UserQuery->get_user($loginname);
-            // echo var_dump($result);
+            $result = $userdb->get_user($loginname);
             // echo $result->num_rows;
             if ($result->num_rows == 0)
                 $login_error .= "Account doesn't exist. Please check the login name again.";
             else {
-                $obj = $result;
+                $obj = $result->fetch_object();
                 $svpasswd = $obj->acc_password;
                 $svname = $obj->acc_name;
                 if ($svpasswd != sha1($passwd)) {
@@ -34,7 +33,7 @@
                     $_SESSION['username'] = $svname;
                     $_SESSION['ACKed'] = 'yes';
                     $_SESSION['login'] = $loginname;
-                    header("./Calendar.php");
+                    header("Location: ./calendar.php?".SID);
                 }
             }
         }
