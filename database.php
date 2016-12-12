@@ -9,6 +9,7 @@ if (mysqli_connect_errno())
   }
 
 //You can replace the strings below with whatever passwords you would like
+$username = "tnz";
 $str1 = "55455";
 
 // You can replace the 
