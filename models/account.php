@@ -2,18 +2,13 @@
 /**
 * 
 */
-class Account
+class AccountDB
 {
     private $con;
     
     function __construct()
     {
-        $this->server_name = 'egon.cs.umn.edu';
-        $this->user_name = 'C4131F16U128';
-        $this->pass_code = '18606';
-        $this->acc_name = 'C4131F16U128';
-        $this->port_num = '3307';
-        $this->con = new mysqli($this->server_name, $this->user_name, $this->pass_code, $this->acc_name, $this->port_num);
+        $this->con = new mysqli('egon.cs.umn.edu', 'C4131F16U128', '18606', 'C4131F16U128', '3307');
         if ($this->con->connect_error)
             echo "Failed to connect to MySQL: ".mysqli_connect_error();
     }
@@ -36,9 +31,20 @@ class Account
     }
 
     public function adduser($name, $login, $passcode_sha) {
-        $sql = "INSERT INTO tbl_accounts (acc_name, acc_login, acc_password) VALUES ('".$name."', '".$login."', '".$password_sha."');";
+        $sql = "SELECT * FROM tbl_accounts WHERE acc_login='".$login."'";
+        if (mysqli_query($this->con, $sql)->num_rows > 0) {
+            return 0;
+        }
+        $sql = "INSERT INTO tbl_accounts (acc_name, acc_login, acc_password) VALUES ('".$name."', '".$login."', '".$passcode_sha."');";
         mysqli_query($this->con, $sql);
+        return 1;
     }
+
+    public function update($id, $name, $login, $password_sha)
+    {
+        $sql="UPDATE tbl_accounts SET acc_name='".$name."', acc_login='".$login."', acc_password='".$password_sha."' WHERE acc_id='".$id."'";
+        mysqli_query($this->con, $sql);
+    }    
 }
 
 ?>

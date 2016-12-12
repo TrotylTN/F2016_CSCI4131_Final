@@ -26,6 +26,48 @@
             <?php
                 echo $users_error;
             ?>
-        </td> </tr> </table>        
+        </td> </tr> </table> 
+        <p></p>
+        <form class="inputform" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+
+        <table>
+            <tr>
+                <td style="width: 50px; height: 50px"> <b> ID </b> </td>
+                <td> <b> Name </b> </td>
+                <td> <b> Login </b> </td>
+                <td> <b> New Password </b> </td>
+                <td> <b> Action </b> </td>
+            </tr>
+            <?php echo $users_data; ?>
+        </table>
+        <p></p>
+        <table style="width: 600px; border: none;">
+            <tr style="height: 40px; border: none;">
+                <td style="border: none;">
+                    <h3> Add New User </h3>
+                </td>
+            </tr>
+            <tr style="height: 40px; border: none;">
+                <td style="border: none;">
+                    <b> Name: <input type="text" name="addname"> </b>
+                </td>
+            </tr>
+            <tr style="height: 40px; border: none;">
+                <td style="border: none;">
+                    <b> Login: <input type="text" name="addlogin"> </b>
+                </td>
+            </tr>
+            <tr style="height: 40px; border: none;">
+                <td style="border: none;">
+                    <b> Password: <input type="password" name="addpassword"> </b>
+                </td>
+            </tr>             
+            <tr style="height: 40px; border: none;">
+                <td style="border: none;">
+                    <button type="submit" name="addnew" value="submitted">Add User</button>
+                </td>
+            </tr>
+        </table>
+        </form>
     </body>
 </html>
