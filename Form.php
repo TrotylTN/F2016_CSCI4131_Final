@@ -28,8 +28,8 @@
         <button style='margin-left: 40px;' onclick="{location.href='./logout.php?<?php echo SID; ?>'}">Logout</button>
         </p>
         <nav class="cal">
-            <button class="navlink" onclick="{location.href='./calendar.php?<?php echo SID; ?>'}">My Calendar</button>
-            <button class="navlink" onclick="{location.href='./input.php?<?php echo SID; ?>'}">Form Input</button>
+            <button class="navlink" onclick="{location.href='./Calendar.php?<?php echo SID; ?>'}">My Calendar</button>
+            <button class="navlink" onclick="{location.href='./Form.php?<?php echo SID; ?>'}">Form Input</button>
         </nav>
         </div>
         <table class="warn"> <tr class="warn"> <td class="warn">
@@ -37,7 +37,7 @@
                 if ($_POST["clearall"] == 'confirm') {
                     $jsonfile = fopen($loginname."_calendar.txt", "w") or die("Unable to clean file!");
                     fclose($jsonfile);
-                    header('Location: ./calendar.php?'.SID);
+                    header('Location: ./Calendar.php?'.SID);
                 }
                 if ($_POST["passdata"] == 'submitted') {
                     $AllOK = true;
@@ -78,7 +78,7 @@
                         fwrite($jsonfile, $jsonstring);
                         fwrite($jsonfile, "\n");
                         fclose($jsonfile);
-                        header('Location: ./calendar.php?'.SID);
+                        header('Location: ./Calendar.php?'.SID);
                     }                
                 }
           ?>
