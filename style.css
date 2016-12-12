@@ -159,7 +159,7 @@ img.cal
 
 tr.c, td.c
 {
-    height: 200px;
+    height: 120px;
     width: 200px;
 }
 
@@ -168,4 +168,13 @@ table.warn, td.warn, tr.warn {
     background-color: #AEB6BF;
     width: 800px;
     color: red;
+}
+
+table.login, td.login, tr.login {
+    border: 0px;
+    background-color: #D2B4DE;
+}
+
+td.login, tr.login {
+    width: 300px;
 }

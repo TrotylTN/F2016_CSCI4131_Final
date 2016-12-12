@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <title>
-        Tiannan's Calendar
+        My Calendar
     </title>
     <link rel="stylesheet" type="text/css" href="./style.css">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLvHU7BAexcgc-wuWvEzQg6OHMBo_7Le8&libraries=places">
@@ -15,10 +15,25 @@
 
 <body>
     <div>
-    <h2 class="tntitle"> Tiannan's Calendar </h2>
+    <h2 class="tntitle"> My Calendar </h2>
+    <?php
+        session_start();
+        if ($_SESSION["ACKed"] == 'yes') {
+            echo "<span style='margin-left: 40px; font-weight: bold'>Welcome " . $_SESSION['username'] . '</span><br>';
+            $loginname = $_SESSION['login'];
+        } else {
+            echo "<p style='color: red; font-weight: bold; margin-left: 40px;'> Please login first. </p>";
+            echo "<p style='font-weight: bold; margin-left: 40px;'> If your browser didn't redirect automatically, <a href='./login.php'> click here to login. </a></p>";
+            header("Location: ./login.php");
+            die();
+        }
+    ?>
+    <p>
+    <button style='margin-left: 40px;' onclick="{location.href='./logout.php?<?php echo SID; ?>'}">Logout</button>
+    </p>
     <nav class="cal">
-        <button class="navlink" onclick="{location.href='./calendar.php'}">My Calendar</button>
-        <button class="navlink" onclick="{location.href='./input.php'}">Form Input</button>
+        <button class="navlink" onclick="{location.href='./calendar.php?<?php echo SID; ?>'}">My Calendar</button>
+        <button class="navlink" onclick="{location.href='./input.php?<?php echo SID; ?>'}">Form Input</button>
     </nav>
     </div>
 
@@ -29,11 +44,11 @@
       <?php
         global $caldata;
         $caldata = array("Mon"=>array(), "Tue"=>array(), "Wed"=>array(), "Thu"=>array(), "Fri"=>array());
-        if (!file_exists("calendar.txt")) {
+        if (!file_exists($loginname."_calendar.txt")) {
             echo "Calendar has no events. Please use the input page to enter some events.\n";
         }
         else {
-            $jsonfile = fopen("calendar.txt", "r") or die("Unable to open file!");
+            $jsonfile = fopen($loginname."_calendar.txt", "r") or die("Unable to open file!");
             global $caldata;
             $enjsondata = fgets($jsonfile);
             if (feof($jsonfile)) {
@@ -93,20 +108,8 @@
               echo $day_arr[$i]["starttime"] . " - " . $day_arr[$i]["endtime"];
               echo " </span> <br> <br>";
 
-              echo $day_arr[$i]["eventname"] . "<br>";
-              echo '<span id="S';
-              echo $id * 10 + $i;
-              echo '" onmouseover="display_photo_on(';
-              echo $id * 10 + $i;
-              echo ", '" . $day_arr[$i]["location"] . "'";
-              echo ')" onmouseout="hide_photo(';
-              echo $id * 10 + $i;
-              echo ')"> @';
-              echo $day_arr[$i]["location"] . "</span> <br>";
-
-              echo '<br> <img id="';
-              echo $id * 10 + $i;
-              echo '" class="cal" alt="'. $day_arr[$i]["location"] .'" src="' . $day_arr[$i]["url"] . '" />';
+              echo $day_arr[$i]["eventname"] . "<br>@";
+              echo $day_arr[$i]["location"] . "<br>";
               echo "</td>\n";
             }
             for ($i = $tot; $i < $max_cnt; $i++) {
@@ -256,25 +259,6 @@
       {
         createCourse(results[0].geometry.location, "<b>" + results[0].name + "</b>");
       }      
-    }
-
-    function display_photo_on(xid, loc_req)
-    {
-        xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET","./urlquery.php?loc=" + loc_req,true);
-        xmlhttp.send();
-        xmlhttp.onreadystatechange=function() {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-                // alert(xmlhttp.responseText);
-                document.getElementById(String(xid)).src=xmlhttp.responseText;
-                document.getElementById(String(xid)).style.opacity = 1;
-            }
-        }
-    }
-
-    function hide_photo(xid)
-    {
-        document.getElementById(String(xid) ).style.opacity = 0;
     }
 
     <?php
