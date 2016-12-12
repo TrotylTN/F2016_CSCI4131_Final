@@ -1,0 +1,171 @@
+h2.tntitle {text-align: center}
+
+body
+{
+    background-color: #AEB6BF;
+}
+table, tr, td
+{
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
+    border-collapse: collapse;
+    border: 2.5px solid white;
+}
+
+td,tr
+{
+    background-color: #66CCCC;
+    width: 200px;
+}
+
+table.input, tr.input, td.input
+{
+    width: 400px;
+    height: 30px;
+    border: none;
+    text-align: left;
+    margin: auto;
+}
+
+p.foots
+{
+    font-style: italic;
+    font-size: small;
+    text-align: center;
+}
+
+nav.cal
+{
+    background-color: #FFCC00;
+    text-align: center;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+td.days
+{
+    font-weight: bold;
+    background-color: #D2B4DE;
+    width: 50px;
+}
+button.navlink
+{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+span.sub
+{
+    font-weight: bold;
+    margin-left: 10px;
+}
+span.time
+{
+    font-style: italic;
+    font-weight: bold;
+}
+
+form.inputform
+{
+    margin: auto;
+}
+
+div.rolling
+{
+    text-align: left;
+    margin: auto;
+    width: 865px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+table.img, tr.img, td.img
+{
+    text-align: center;
+    margin: auto;
+    border-collapse: collapse;
+    border: none;
+    background-color: #AEB6BF;
+}
+
+table.adswitch, tr.sw, td.sw
+{
+    text-align: center;
+    margin: auto;
+    border-collapse: collapse;
+    border: 0px;
+    background-color: #AEB6BF;
+    height: 20px;
+}
+
+td.sw
+{
+    width: 20px;
+}
+table.ad, tr.ad, td.ad, td.adbutton
+{
+    text-align: center;
+    margin: auto;
+    border-collapse: collapse;
+    border: 0px;
+    background-color: #AEB6BF;
+    height: 300px;
+}
+td.adbutton
+{
+    width: 40px;
+}
+td.ad
+{
+    width: 800px;
+}
+
+table.mp, tr.mp, td.mp, td.mpmp
+{
+    text-align: center;
+    margin: auto;
+    border-collapse: collapse;
+    border: 0px;
+    background-color: white;
+}
+td.mp
+{
+    width: 600px;
+    height: 30px;
+}
+td.mpmp
+{
+    width: 860px;
+    height: 600px;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#map {
+    height: 100%;
+}
+
+img.cal
+{
+    opacity: 0;
+    height: 100px;
+}
+
+tr.c, td.c
+{
+    height: 200px;
+    width: 200px;
+}
+
+table.warn, td.warn, tr.warn {
+    border: 0px;
+    background-color: #AEB6BF;
+    width: 800px;
+    color: red;
+}
