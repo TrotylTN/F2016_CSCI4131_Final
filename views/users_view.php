@@ -4,53 +4,28 @@
     <head>
         <meta charset="UTF-8">
         <title>
-            Login Page
+            Users Manager
         </title>
         <link rel="stylesheet" type="text/css" href="./style.css">
     </head>
 
     <body>
-        <h2 class="tntitle"> Login Page </h2>
-        <p> </p>
+        <div>
+        <h2 class="tntitle"> Users Manager </h2>
+        <span style='margin-left: 40px; font-weight: bold'> Welcome  <?php echo $_SESSION['username']; ?> </span><br>
+        <p>
+        <button style='margin-left: 40px;' onclick="{location.href='./logout.php?<?php echo SID; ?>'}">Logout</button>
+        </p>
+        <nav class="cal">
+            <button class="navlink" onclick="{location.href='./Calendar.php?<?php echo SID; ?>'}">My Calendar</button>
+            <button class="navlink" onclick="{location.href='./Form.php?<?php echo SID; ?>'}">Form Input</button>
+            <button class="navlink" onclick="{location.href='./admin.php?<?php echo SID; ?>'}">Users Manager</button>
+        </nav>
+        </div>
         <table class="warn"> <tr class="warn"> <td class="warn">
-        <?php
-            echo $login_error;
-        ?>
-        </td> </tr> </table>
-        <form class="inputform" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <p> </p>
-        <table class="login">
-            <tr class="login">
-                <td class="login" style="width: 600px">
-                    <p>Please enter your user's login name and password. Both values are case sensitive.</p>
-                </td>
-            </tr>
-        </table>
-        <table class="login">
-            <tr class="login">
-                <td class="login">
-                    <p> Login: </p>
-                </td>
-                <td class="login" style="text-align: left">
-                    <p> <input type="text" name="login"> </p>
-                </td>
-            </tr>
-            <tr class="login">
-                <td class="login">
-                    <p> Password: </p>
-                </td>
-                <td class="login" style="text-align: left">
-                    <p> <input type="password" name="password"> </p>
-                </td>
-            </tr>
-        </table>
-        <table class="login">
-            <tr class="login">
-                <td class="login" style="width: 600px">
-                    <p> <button type="submit" name="passdata" value="confirm"> Submit </button> </p>
-                </td>
-            </tr>
-        </table>
-        </form>
+            <?php
+                echo $users_error;
+            ?>
+        </td> </tr> </table>        
     </body>
 </html>

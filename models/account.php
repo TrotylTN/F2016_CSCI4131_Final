@@ -6,7 +6,7 @@ class Account
 {
     private $con;
     
-    function __construct(argument)
+    function __construct()
     {
         $this->server_name = 'egon.cs.umn.edu';
         $this->user_name = 'C4131F16U128';

@@ -34,6 +34,7 @@
     <nav class="cal">
         <button class="navlink" onclick="{location.href='./Calendar.php?<?php echo SID; ?>'}">My Calendar</button>
         <button class="navlink" onclick="{location.href='./Form.php?<?php echo SID; ?>'}">Form Input</button>
+        <button class="navlink" onclick="{location.href='./admin.php?<?php echo SID; ?>'}">Users Manager</button>
     </nav>
     </div>
 

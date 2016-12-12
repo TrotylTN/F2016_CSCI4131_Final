@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include "models/users.php";
+    include_once "models/users.php";
     if (!isset($userdb)) {
         $userdb = new UsersDB();
     }
@@ -33,10 +33,10 @@
                     $_SESSION['username'] = $svname;
                     $_SESSION['ACKed'] = 'yes';
                     $_SESSION['login'] = $loginname;
-                    header("Location: ./calendar.php?".SID);
+                    header("Location: ./Calendar.php?".SID);
                 }
             }
         }
     }
-    include "./views/login_view.php";
+    include_once "./views/login_view.php";
 ?>
