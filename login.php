@@ -4,7 +4,7 @@
     if (!isset($userdb)) {
         $userdb = new UsersDB();
     }
-    $login_error .= "";
+    $login_error = "";
     if (isset($_POST["passdata"])) {          
         $flag = true;
         if ($_POST["login"] == "") {
